@@ -1,11 +1,12 @@
 // import ScoreKeeper from './ScoreKeeper';
-import Todos from './Todos';
+// import Todos from './Todos';
+import IconList from './IconList';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Todos />
+      <IconList />
     </div>
   );
 }
