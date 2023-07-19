@@ -6,11 +6,10 @@ class Todos extends Component {
     this.state = {
       // store an array of todo objects
       todos: [
-        { task: 'do the dishes', done: false, id: 1},
-        { task: 'vacuum the floor', done: true, id: 2},
+        { task: 'do the dishes', done: false, id: 1 },
+        { task: 'vacuum the floor', done: true, id: 2 }
       ]
     };
-    this.completeTodo = this.completeTodo.bind(this);
   }
 
   // Don't use this practice
@@ -22,21 +21,25 @@ class Todos extends Component {
 
   completeTodo(id) {
     // Array.prototype.map returns new array
-    const newTodos = this.state.todos.map(todo => {
-      if(todo.id === id) {
+    const newTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
         // make a copy of the todo object with done -> true
-        return { ...todo, done: true};
+        return { ...todo, done: true };
       }
       return todo; // old todos can pass through
     });
-
-    this.setState({ todos: newTodos });  // setState to the new Array
+    this.setState({ todos: newTodos }); // setState to the new Array
   }
 
   render() {
     return (
       <div>
         <h1>Modifying state for Data structures(arrays, objects etc)</h1>
+        {this.state.todos.map((t) => (
+          <div key={t.id}>
+            {t.id} - {t.task} - {t.done ? 'True' : 'False'}
+          </div>
+        ))}
         <button onClick={() => this.completeTodo(1)}>Complete todo 1</button>
       </div>
     );
